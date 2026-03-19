@@ -27,10 +27,10 @@ export default async function LoginPage() {
           <p className="text-sm font-medium text-sky-800">Credenciais de demonstração após seed</p>
           <div className="mt-3 space-y-2 text-sm text-slate-600">
             <p>
-              <strong>Ronaldo:</strong> ronaldo@example.com / Demo@1234
+              <strong>Jhon Doe:</strong> jhon.doe@example.com / Demo@1234
             </p>
             <p>
-              <strong>Ana:</strong> ana@example.com / Demo@1234
+              <strong>Jane Doe:</strong> jane.doe@example.com / Demo@1234
             </p>
           </div>
         </div>

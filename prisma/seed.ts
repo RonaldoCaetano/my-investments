@@ -12,23 +12,23 @@ async function resetDatabase() {
 
 async function seedTransactions() {
   const demoPasswordHash = hashPassword("Demo@1234");
-  const ronaldo = await prisma.user.create({
+  const jhon = await prisma.user.create({
     data: {
-      email: "ronaldo@example.com",
-      name: "Ronaldo Caetano",
+      email: "jhon.doe@example.com",
+      name: "Jhon Doe",
       passwordHash: demoPasswordHash
     }
   });
-  const ana = await prisma.user.create({
+  const jane = await prisma.user.create({
     data: {
-      email: "ana@example.com",
-      name: "Ana Souza",
+      email: "jane.doe@example.com",
+      name: "Jane Doe",
       passwordHash: demoPasswordHash
     }
   });
   const entries = [
     {
-      userId: ronaldo.id,
+      userId: jhon.id,
       ticker: "PETR4",
       assetType: AssetType.STOCK,
       type: TransactionType.BUY,
@@ -37,7 +37,7 @@ async function seedTransactions() {
       occurredAt: new Date("2026-01-10T10:00:00.000Z")
     },
     {
-      userId: ronaldo.id,
+      userId: jhon.id,
       ticker: "MXRF11",
       assetType: AssetType.FII,
       type: TransactionType.BUY,
@@ -46,7 +46,7 @@ async function seedTransactions() {
       occurredAt: new Date("2026-01-12T10:00:00.000Z")
     },
     {
-      userId: ronaldo.id,
+      userId: jhon.id,
       ticker: "PETR4",
       assetType: AssetType.STOCK,
       type: TransactionType.BUY,
@@ -55,7 +55,7 @@ async function seedTransactions() {
       occurredAt: new Date("2026-02-03T10:00:00.000Z")
     },
     {
-      userId: ana.id,
+      userId: jane.id,
       ticker: "IVVB11",
       assetType: AssetType.ETF,
       type: TransactionType.BUY,
@@ -64,7 +64,7 @@ async function seedTransactions() {
       occurredAt: new Date("2026-02-05T10:00:00.000Z")
     },
     {
-      userId: ana.id,
+      userId: jane.id,
       ticker: "TESOURO2035",
       assetType: AssetType.BOND,
       type: TransactionType.BUY,
@@ -73,7 +73,7 @@ async function seedTransactions() {
       occurredAt: new Date("2026-02-14T10:00:00.000Z")
     },
     {
-      userId: ronaldo.id,
+      userId: jhon.id,
       ticker: "PETR4",
       assetType: AssetType.STOCK,
       type: TransactionType.SELL,
@@ -82,7 +82,7 @@ async function seedTransactions() {
       occurredAt: new Date("2026-03-01T10:00:00.000Z")
     },
     {
-      userId: ana.id,
+      userId: jane.id,
       ticker: "BTC",
       assetType: AssetType.CRYPTO,
       type: TransactionType.BUY,

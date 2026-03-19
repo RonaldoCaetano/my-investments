@@ -137,7 +137,7 @@ export function AuthForm({ defaultMode = "login" }: AuthFormProps) {
               <Label htmlFor="name">Nome</Label>
               <Input
                 id="name"
-                placeholder="Ronaldo Caetano"
+                placeholder="Jhon Doe"
                 value={values.name}
                 onChange={(event) => updateValue("name", event.target.value)}
               />

@@ -1,6 +1,6 @@
 # My Investments MVP
 
-## Estrutura
+## Structure
 
 ```text
 .
@@ -41,19 +41,19 @@
 └── tsconfig.json
 ```
 
-## Como rodar
+## Running Locally
 
-1. Suba o banco: `docker compose up -d`
-2. Copie `.env.example` para `.env`
-3. Instale dependencias: `npm install`
-4. Gere o client do Prisma: `npx prisma generate`
-5. Rode a migration inicial: `npx prisma migrate dev --name init`
-6. Popule dados de exemplo: `npm run prisma:seed`
-7. Inicie o app: `npm run dev`
-8. Acesse `http://localhost:3000/login`
-9. Rode os testes: `npm test`
+1. Start the database: `docker compose up -d`
+2. Copy `.env.example` to `.env`
+3. Install dependencies: `npm install`
+4. Generate the Prisma client: `npx prisma generate`
+5. Run the initial migration: `npx prisma migrate dev --name init`
+6. Seed demo data: `npm run prisma:seed`
+7. Start the app: `npm run dev`
+8. Open `http://localhost:3000/login`
+9. Run the test suite: `npm test`
 
-## Exemplo de payload
+## Example Payload
 
 ```json
 {
@@ -61,41 +61,39 @@
   "assetType": "STOCK",
   "type": "BUY",
   "quantity": 100,
-  "value": 3275.00
+  "value": 3275.0
 }
 ```
 
-`value` representa o valor financeiro total da transacao. O preco medio do ativo e recalculado no servidor com base em `quantity` e `value`. A rota requer usuario autenticado e usa a sessao para vincular a transacao ao dono da carteira.
+`value` represents the total monetary amount of the transaction. The asset average price is recalculated on the server based on `quantity` and `value`. The route requires an authenticated user and uses the active session to link the transaction to the portfolio owner.
 
-## Seed
+## Seed Data
 
-O projeto inclui um seed em TypeScript em `prisma/seed.ts`, com:
+The project includes a TypeScript seed in `prisma/seed.ts` with:
 
-- 2 investidores de exemplo
-- ativos de acoes, FII, ETF, renda fixa e cripto
-- compras e vendas para validar o calculo de preco medio
+- 2 demo investors
+- stock, REIT, ETF, bond, and crypto assets
+- buy and sell operations to validate average price calculations
 
-Credenciais demo:
+Demo credentials:
 
-- `ronaldo@example.com` / `Demo@1234`
-- `ana@example.com` / `Demo@1234`
+- `jhon.doe@example.com` / `Demo@1234`
+- `jane.doe@example.com` / `Demo@1234`
 
-## Autenticacao
+## Authentication
 
-- Sessao com cookie `httpOnly`
-- Senha com hash no servidor
-- Dashboard e transacoes isolados por usuario autenticado
+- `httpOnly` cookie-based session
+- Password hashing on the server
+- Dashboard and transactions scoped to the authenticated user
 
-## Testes
+## Tests
 
-- A suíte roda com `npm test`
-- Os testes atuais cobrem a regra de carteira em `lib/portfolio.ts`
-- A suíte também cobre as rotas HTTP de autenticação e transações com sessão real via cookie
-- Como são testes de integração com Prisma, o PostgreSQL local precisa estar ativo
+- The suite runs with `npm test`
+- Current tests cover portfolio rules in `lib/portfolio.ts`
+- The suite also covers HTTP authentication and transaction routes using real cookie-based sessions
+- Because these are Prisma integration tests, local PostgreSQL must be running
 
-## Proximos passos
+## Next Steps
 
-- Edicao e exclusao de transacoes com recálculo da carteira
-- Testes automatizados da regra de preco medio e das rotas de API
-- Indicadores mais ricos no dashboard, com alocacao e desempenho
-- Hardening de senha para producao: migrar do uso direto de `scrypt` para `argon2id` ou `bcrypt`, com parametros e politica de rotacao mais explicitos
+- Richer dashboard indicators for allocation and performance
+- Production password hardening: migrate direct `scrypt` usage to `argon2id` or `bcrypt`, with explicit parameters and a rotation policy
